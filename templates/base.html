@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090D16" />
+  <meta name="description" content="IronPulse — workouts, scroll-morph progress photos and a fitness goal studio by Raj Gautam, Jaunpur, Uttar Pradesh." />
+  <title>{% block title %}IronPulse — Fitness &amp; Transformation{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='assets/logo-ironpulse.svg') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ironpulse.css') }}" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="IronPulse home">
+        <img src="{{ url_for('static', filename='assets/logo-ironpulse.svg') }}" alt="IronPulse" width="196" height="42" />
+      </a>
+      <div class="nav-links">
+        <a href="#studio">The Studio</a>
+        <a href="#logger">Workouts</a>
+        <a href="#photos">Progress</a>
+        <a href="#goals">Goals</a>
+        <a href="#calculator">Calculator</a>
+      </div>
+      <div class="nav-actions">
+        <span class="dev-pill" title="Built by Raj Gautam"><span class="dot"></span> Raj Gautam · Jaunpur, UP</span>
+        <a class="btn btn-volt btn-sm" href="#logger">Log Workout <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-card reveal">
+      <div class="footer-brand">
+        <img src="{{ url_for('static', filename='assets/logo-ironpulse.svg') }}" alt="IronPulse" width="220" height="46" />
+        <p>Train with intent. Track with data. Transform with proof.<br />An open-source fitness studio engineered in Jaunpur, Uttar Pradesh, India.</p>
+      </div>
+      <div class="footer-links">
+        <span class="eyebrow">Developer</span>
+        <strong>Raj Gautam</strong>
+        <a href="mailto:graj13099@gmail.com">graj13099@gmail.com</a>
+        <a href="https://www.instagram.com/linux.userraj" target="_blank" rel="noopener">Instagram · @linux.userraj</a>
+        <a href="https://github.com/Rg100152" target="_blank" rel="noopener">github.com/Rg100152</a>
+      </div>
+      <div class="footer-links">
+        <span class="eyebrow">Stack</span>
+        <span>Python · Flask · SQLite3</span>
+        <span>HTML5 · CSS3 · Vanilla JS</span>
+        <span>IntersectionObserver Sticky Stage</span>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>© 2026 IronPulse. Built for the long game.</span>
+      <span class="volt-text">No shortcuts. No phone numbers. Just reps.</span>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='js/scrollMorph.js') }}"></script>
+</body>
+</html>

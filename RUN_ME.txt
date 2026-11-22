@@ -1,0 +1,76 @@
+===============================================================================
+ IRONPULSE - COPY, PASTE, RUN
+ Workouts, Scroll-Morph Progress & Fitness Goal Studio
+ Raj Gautam | Jaunpur, Uttar Pradesh, India
+ github.com/Rg100152 | @linux.userraj | graj13099@gmail.com
+===============================================================================
+
+STEP 1 - Open a terminal inside this folder
+-------------------------------------------------------------------------------
+cd /path/to/ironpulse
+
+STEP 2 - Create a virtual environment and install Flask
+-------------------------------------------------------------------------------
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+WINDOWS USERS (PowerShell) use these instead:
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+STEP 3 - Fill the database with sample workouts, goals and photos
+-------------------------------------------------------------------------------
+python3 seed_fitness.py
+
+STEP 4 - Start the server
+-------------------------------------------------------------------------------
+python3 app.py
+
+STEP 5 - Open in your browser
+-------------------------------------------------------------------------------
+http://127.0.0.1:5000
+
+Stop the server anytime with:  CTRL + C
+
+-------------------------------------------------------------------------------
+ONE-LINE VERSION (Linux / macOS)
+-------------------------------------------------------------------------------
+python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python3 seed_fitness.py && python3 app.py
+
+-------------------------------------------------------------------------------
+ALREADY HAVE FLASK INSTALLED?
+-------------------------------------------------------------------------------
+python3 seed_fitness.py
+python3 app.py
+
+-------------------------------------------------------------------------------
+OPTIONAL - Re-download the stock images (already bundled)
+-------------------------------------------------------------------------------
+mkdir -p static/assets static/uploads
+curl -L "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" -o static/assets/banner.jpg
+curl -L "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80" -o static/assets/stage-1.jpg
+curl -L "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" -o static/assets/stage-2.jpg
+curl -L "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=900&q=80" -o static/assets/stage-3.jpg
+
+-------------------------------------------------------------------------------
+WHAT TO TRY IN THE APP
+-------------------------------------------------------------------------------
+1. Scroll the "Scroll-Driven Transformation" section slowly and watch the
+   pinned right-hand image morph Strength -> Cardio -> Transformation.
+2. Drag the before/after handle in the Progress Studio.
+3. Log a workout, add a goal, upload a progress photo, calculate your BMI/BMR.
+4. Refresh the page - everything is saved in database/ironpulse.db.
+
+-------------------------------------------------------------------------------
+TROUBLESHOOTING
+-------------------------------------------------------------------------------
+* Port 5000 busy? Open app.py, change the last line to port=8000, save,
+  run python3 app.py again and open http://127.0.0.1:8000
+* Empty dashboard? Run: python3 seed_fitness.py
+* Windows execution policy error? Run PowerShell as admin once:
+  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+No phone number is used or displayed anywhere in this project.
+===============================================================================
